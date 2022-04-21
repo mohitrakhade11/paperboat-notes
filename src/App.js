@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
+import NoteList from './componants/notelist/NoteList';
+import AddNote from "/Users/mohitrakhade/Desktop/projects/paperboat-notes/src/componants/addnote/AddNote.js"   
 function App() {
+  const [noteId, setNoteId] = useState("")
+
+  const getNoteIdHandler=(id)=>{
+    console.log("the id of doc to edit",id)
+    setNoteId(id)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AddNote id={noteId} />
+    <NoteList getNoteId={getNoteIdHandler}/>
     </div>
   );
 }

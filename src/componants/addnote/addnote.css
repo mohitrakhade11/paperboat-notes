@@ -1,0 +1,12 @@
+form{
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+form input{
+    width: 40rem;
+    height: 3rem;
+    font-size: large;
+}

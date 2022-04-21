@@ -1,0 +1,10 @@
+.noteslist{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+button{
+    width: fit-content;
+    padding: 0.5rem;
+    font-size: large;
+}
