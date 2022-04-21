@@ -9,10 +9,10 @@ function App() {
     console.log("the id of doc to edit",id)
     setNoteId(id)
   }
-  
+
   return (
     <div className="App">
-    <AddNote id={noteId} />
+    <AddNote id={noteId} setNoteId={setNoteId}/>
     <NoteList getNoteId={getNoteIdHandler}/>
     </div>
   );

@@ -28,7 +28,7 @@ class noteDataService {
         return getDocs(NoteCollectionRef)
     };
     getNote =(id)=>{
-        const noteDoc = doc(db,"notes",id);
+    const noteDoc = doc(db,"notes",id);
     return getDocs(noteDoc);
     }
 }

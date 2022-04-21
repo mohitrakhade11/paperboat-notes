@@ -31,9 +31,7 @@ const NoteList = ({getNoteId}) => {
                         <span>{doc.title}</span>
                         <span>{doc.note}</span>
                         <span>{doc.status}</span>
-                        <span><button 
-                        onClick={(e)=> getNoteId(doc.id)}
-                        >edit</button>
+                        <span><button onClick={(e)=> getNoteId(doc.id)}>edit</button>
                         <button
                          onClick={(e)=> deleteHandler(doc.id)}
                         >delete</button>

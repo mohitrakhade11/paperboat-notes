@@ -1,8 +1,8 @@
-import { async } from "@firebase/util";
-import { React, useState } from "react";
+// import { async } from "@firebase/util";
+import { React, useEffect, useState } from "react";
 import noteDataService from "../../services/note.services";
 import "./addnote.css";
-const AddNote = () => {
+const AddNote = ({ id, setNoteId}) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [status, setstatus] = useState("notdone");
@@ -31,6 +31,25 @@ const [message, setMessage] = useState({error:false,msg:""})
     setTitle("")
     setNote("")
   }
+const editHandler=async()=>{
+  setMessage("");
+  try{
+      const docSnap= await noteDataService.getNote(id);
+      console.log("the record is", docSnap.data())
+      setTitle(docSnap.data().title)
+      setNote(docSnap.data().note)
+      setstatus(docSnap.data().status)
+  }catch(err){
+      setMessage({error:true,msg:err.message})
+  }
+}
+
+  useEffect(()=>{
+      console.log("id here is",id)
+    if( id!== undefined && id!== ""){
+        editHandler()
+    }
+  },[id])
   return (
     <div>
         {message?.msg&&(<p></p>)}
