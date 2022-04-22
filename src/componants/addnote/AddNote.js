@@ -6,7 +6,7 @@ const AddNote = ({ id, setNoteId}) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [status, setstatus] = useState("notdone");
-  const [flag, setFlag] = useState(true);
+  const [flag, setFlag] = useState(false);
 const [message, setMessage] = useState({error:false,msg:""})
   const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -54,14 +54,16 @@ const editHandler=async()=>{
     <div>
         {message?.msg&&(<p></p>)}
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="add note title" value={title} 
+       <div className="input-container">
+       <input className="inputtitle" type="text" placeholder="add note title" value={title} 
         onChange={(e)=>setTitle(e.target.value)}
         />
-        <input type="text" placeholder="add note" value={note}
+        <input className="inputnote" type="text" placeholder="add note" value={note}
                 onChange={(e)=>setNote(e.target.value)}
         />
+       </div>
         <div>
-          <button
+          {/* <button
           disabled={flag}
           onClick={(e)=>{
               setstatus("done")
@@ -74,10 +76,10 @@ const editHandler=async()=>{
                setstatus("not-done")
                setFlag(false)
            }}
-          >unAvailable</button>
+          >unAvailable</button> */}
         </div>
 
-        <button type="submit">Add/Update Note</button>
+        <button className="addbtn" type="submit">Add Note</button>
       </form>
     </div>
   );
